@@ -1,9 +1,9 @@
 const express = require('express') 
 const path = require('path')
-const morgan = require('morgan') 
+//const morgan = require('morgan') 
 const rateLimit = require('express-rate-limit') 
 const cors = require('cors')
-const helmet = require('helmet')
+//const helmet = require('helmet')
 const dotenv = require('dotenv')
 
 const AppError = require('./utils/appError');
@@ -29,10 +29,10 @@ app.options('*', cors())
     },
 })) */
 
-if (process.env.NODE_ENV === 'development') {
+/* if (process.env.NODE_ENV === 'development') {
     // To make console logs when there is a request to the server
     app.use(morgan('dev'));
-}
+} */
 
 app.use(express.json())
 
