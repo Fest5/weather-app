@@ -4,7 +4,7 @@ const axios = require('axios')
 const searchLocation = asyncHandler( async (req, res) => {
     const city = req.params.city
     
-    const currentWeather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.WEATHER_API_KEY}`)
+    const currentWeather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.WEATHER_API_KEY}`)
     console.log(currentWeather.data) 
   
 
