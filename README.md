@@ -27,6 +27,11 @@ El buscador te permite buscar cualquier otra ciudad además de las propuestas en
 
 - Frontend: react, react-bootstrap, react-router-dom, react-dom, react-router-bootstrap, react-scripts, axios
 
+## ¿Cómo correr app?
+
+- En consola desde el root "npm run dev" para development mode
+- En consola desde el root "npm run server" para production mode (se cambia a production automáticamente ejecutando este comando)
+
 ## Otro
 
 Desde el root se puede correr la aplicación web y la API simultaneamente con el comando "npm run dev". Esto es gracias a la libreria "concurrently".
