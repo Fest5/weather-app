@@ -5,7 +5,7 @@ import axios from "axios"
 import Loader from "../components/Loader"
 import WeatherCard from "../components/WeatherCard"
 
-const CityWeather = ({ match }) => {
+const CityWeather = ({ match, history }) => {
   const city = match.params.city
   const lat = new URLSearchParams(useLocation().search).get("lat")
   const lon = new URLSearchParams(useLocation().search).get("lon")
@@ -23,7 +23,8 @@ const CityWeather = ({ match }) => {
       setDays(await fiveDays.data)
       //console.log(fiveDays)
     } catch (err) {
-      console.log(err)
+      alert(err.message)
+      history.push('/')
     }
   }
 

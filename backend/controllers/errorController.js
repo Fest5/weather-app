@@ -11,7 +11,7 @@ const sendErrorDev = (err, req, res) => {
           });
     } else {
         // RENDERED WEBSITE
-        res.status(err.statusCode).render('error', {
+        res.status(err.statusCode).json({
             title: 'Something went wrong!',
             msg: err.message
         })

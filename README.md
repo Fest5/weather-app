@@ -1,6 +1,8 @@
 # Weather App Documentacion
 
-Weather App consiste en una SPA hecha con React en el FrontEnd y Node.js con Express en el Backend. Esta aplicación consume la API de OpenWeather desde el servidor y simplifica el envío de datos al cliente con su propia API desarrollada en el Backend
+Weather App consiste en una SPA hecha con React en el FrontEnd y Node.js con Express en el Backend. Esta aplicación consume la API de OpenWeather desde el servidor y simplifica el envío de datos al cliente con su propia API desarrollada en el Backend.
+
+El buscador te permite buscar cualquier otra ciudad además de las propuestas en los botones.
 
 ## Rutas API
 
@@ -28,5 +30,8 @@ Weather App consiste en una SPA hecha con React en el FrontEnd y Node.js con Exp
 ## Otro
 
 Desde el root se puede correr la aplicación web y la API simultaneamente con el comando "npm run dev". Esto es gracias a la libreria "concurrently".
+
+En el deploy de Heroku, el boton de "Your location" no muestra el tiempo de tu ciudad ya que la API de IP-API usa el protocolo HTTP y la página usa HTTPS. Al intentar hacer la conexión la consola da un error Mixed Content.
+Si corres el proyecto en localhost funciona normalmente.
 
 Esta aplicación fue hecha en menos de 3 dias. 

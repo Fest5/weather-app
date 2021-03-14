@@ -6,7 +6,8 @@ const axios = require('axios')
 const searchLocation = asyncHandler( async (req, res) => {
     const city = req.params.city
     
-    const currentWeather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.WEATHER_API_KEY}`)
+    try {
+        const currentWeather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.WEATHER_API_KEY}`)
     //console.log(currentWeather.data) 
   
 
@@ -20,6 +21,12 @@ const searchLocation = asyncHandler( async (req, res) => {
         todayWeather: currentWeather.data.weather[0],
         wind: currentWeather.data.wind
     })
+    } catch(err) {
+        res.status(err.response.status).json({
+            message: "City not found"
+        })
+    }
+    
     
 })
 

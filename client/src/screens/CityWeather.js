@@ -5,7 +5,7 @@ import axios from "axios"
 import Loader from "../components/Loader"
 import WeatherCard from "../components/WeatherCard"
 
-const CityWeather = ({ match }) => {
+const CityWeather = ({ match, history }) => {
   const city = match.params.city
 
   const [weather, setWeather] = useState({})
@@ -16,7 +16,8 @@ const CityWeather = ({ match }) => {
       setWeather(await currentWeather.data)
       //console.log(currentWeather)
     } catch (err) {
-      console.log(err)
+      alert('City not found, search for a real city')
+      history.push('/')
     }
   }
 
