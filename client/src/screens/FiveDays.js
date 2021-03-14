@@ -21,7 +21,7 @@ const CityWeather = ({ match }) => {
       )
 
       setDays(await fiveDays.data)
-      console.log(fiveDays)
+      //console.log(fiveDays)
     } catch (err) {
       console.log(err)
     }

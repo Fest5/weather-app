@@ -1,4 +1,5 @@
 const express = require('express') 
+const path = require('path')
 const morgan = require('morgan') 
 const rateLimit = require('express-rate-limit') 
 const cors = require('cors')
@@ -19,7 +20,14 @@ app.use(cors())
 app.options('*', cors())
 
 // Set security HTTP headers
-app.use(helmet())
+//app.use(helmet())
+/* app.use(helmet.contentSecurityPolicy({
+    directives: {
+      ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+      "default-src": "*",
+      "script-src": ["'self'", "ip-api.com"],
+    },
+})) */
 
 if (process.env.NODE_ENV === 'development') {
     // To make console logs when there is a request to the server
@@ -42,11 +50,19 @@ app.use('/api/v1/ip', (req, res) => res.send(req.ip))
 app.use('/api', limiter);
 
 
-app.get('/api/v1', (req, res) => {
-    res.send('API is running...')
-})
+
 
 app.use('/api/v1/search', searchRoute)
+
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/build')))
+
+    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')))
+} else {
+    app.get('/api/v1', (req, res) => {
+        res.send('API is running...')
+    })
+}
 
 //To catch the error of a wrong url
 app.all('*', (req, res, next) => {

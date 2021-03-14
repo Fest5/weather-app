@@ -70,9 +70,9 @@ const HomeScreen = () => {
             </Button>
           </LinkContainer>
 
-          <LinkContainer to={`/search/moscu`}>
+          <LinkContainer to={`/search/tokyo`}>
             <Button variant='warning' size='lg' block>
-              Moscu
+              Tokyo
             </Button>
           </LinkContainer>
 
