@@ -1,5 +1,7 @@
 const axios = require('axios')
 
+//Get user ip and request the city
+
 const getIp = async (req, res, next) => {
     const ip = req.ip
     req.ip = ip

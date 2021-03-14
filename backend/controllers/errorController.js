@@ -1,3 +1,5 @@
+// Error management
+
 const sendErrorDev = (err, req, res) => {
     // API
     if(req.originalUrl.startsWith('/api')) {
@@ -77,12 +79,6 @@ module.exports = (err, req, res, next) => {
     } else if (process.env.NODE_ENV === 'production') {
         let error = {...err};
         error.message = err.message
-
-        if(err.name === 'CastError') error = handleCastErrorDB(error)
-        if(err.code === 11000) error = handleDuplicateFieldsDB(error)
-        if(err.name === 'ValidationError') error = handelValidationErrorDB(error);
-        if (error.name === 'JsonWebTokenError') error = handleJwtError()
-        if (error.name === 'TokenExpiredError') error = handleJwtExpired()
 
         sendErrorProd(error, req, res)
     }

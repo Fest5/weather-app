@@ -10,11 +10,9 @@ const getUserIp = require('./middleware/getUserIp')
 const globalErrorHandler = require('./controllers/errorController') 
 const searchRoute = require('./routes/searchRoutes')
 
-dotenv.config()
+dotenv.config() //To get Private sensitive data
 
 const app = express()
-
-app.enable('trust proxy')
 
 app.use(cors())
 // Access-Control-Allow-Origin = *
@@ -24,6 +22,7 @@ app.options('*', cors())
 app.use(helmet())
 
 if (process.env.NODE_ENV === 'development') {
+    // To make console logs when there is a request to the server
     app.use(morgan('dev'));
 }
 
@@ -49,11 +48,12 @@ app.get('/api/v1', (req, res) => {
 
 app.use('/api/v1/search', searchRoute)
 
-
+//To catch the error of a wrong url
 app.all('*', (req, res, next) => {
     next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 });
 
+//Global Error handler
 app.use(globalErrorHandler);
 
 
