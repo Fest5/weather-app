@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useLocation } from "react-router-dom"
-import { Row, Col, Container } from "react-bootstrap"
+import { Row, Col, Container, Button } from "react-bootstrap"
+import { LinkContainer } from "react-router-bootstrap"
 import axios from "axios"
 import Loader from "../components/Loader"
 import WeatherCard from "../components/WeatherCard"
@@ -41,6 +42,9 @@ const CityWeather = ({ match, history }) => {
 
   return (
     <Container>
+      <LinkContainer to={`/search/${city}`}>
+              <Button variant='secondary'>Go Back</Button>
+      </LinkContainer>
       {days.daily ? (
         <>
           <h2 className='text-center'>

@@ -26,13 +26,13 @@ const CityWeather = ({ match, history }) => {
   }, [city])
 
   return (
-    <div>
-      
+    <Container>
+      <LinkContainer to='/'>
+              <Button variant='secondary'>Go Back</Button>
+      </LinkContainer>
       {weather.coord ? (
-        <Container>
-            <LinkContainer to='/'>
-                <Button variant='secondary'>Go Back</Button>
-            </LinkContainer>
+        <>
+            
           <WeatherCard
             city={weather.name}
             main={weather.todayWeather.main}
@@ -46,13 +46,13 @@ const CityWeather = ({ match, history }) => {
           <LinkContainer
             to={`/search/${city}/fiveDays?lat=${weather.coord.lat}&lon=${weather.coord.lon}`}
           >
-            <Button variant='success' block>Five days weather</Button>
+            <Button variant='success' block>Next Five days weather</Button>
           </LinkContainer>
-        </Container>
+        </>
       ) : (
         <Loader>loading</Loader>
       )}
-    </div>
+    </Container>
   )
 }
 
