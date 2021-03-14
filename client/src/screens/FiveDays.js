@@ -44,7 +44,7 @@ const CityWeather = ({ match, history }) => {
       {days.daily ? (
         <>
           <h2 className='text-center'>
-            This is the Weather of {days.all.timezone.includes('GMT') ? `(not a city) ${days.all.timezone}` : days.all.timezone.split('/').pop()} in the next 5 days.
+            This is the Weather of {days.all.timezone.includes('GMT') ? `(not a city) ${days.all.timezone}` : days.all.timezone.split('/').pop().split('_').join(' ')} in the next 5 days.
           </h2> 
           <Row>
             {days.daily.map((day, i) => (
