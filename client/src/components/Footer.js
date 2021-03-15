@@ -6,7 +6,7 @@ const Footer = () => {
         <footer>
            <Container>
                <Row>
-                   <Col className='text-center py-3'>
+                   <Col data-testid="footer" className='text-center py-3'>
                         Copyright Felipe Stuart &copy; Weather App. Powered by OpenWeather API
                    </Col>
                </Row>
