@@ -19,7 +19,7 @@ El buscador te permite buscar cualquier otra ciudad además de las propuestas en
 
 - /search/:city Encontrarás el tiempo de la ciudad la cual hayas seleccionado o buscado.
 
--/search/:city/fiveDays Encontrarás el tiempo de los siguientes 5 dias de la ciudad que hayas seleccionado o buscado
+- /search/:city/fiveDays Encontrarás el tiempo de los siguientes 5 dias de la ciudad que hayas seleccionado o buscado
 
 ## Librerias utilizadas
 
