@@ -33,7 +33,7 @@ const sendErrorProd = (err, req, res) => {
     } else {
         // RENDERED WEBSITE
             // console.log(err)
-            res.status(err.statusCode).json('error', {
+            res.status(err.statusCode).json({
                 title: 'Something went wrong!',
                 msg: err.message
             })
