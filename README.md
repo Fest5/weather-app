@@ -31,7 +31,7 @@ El buscador te permite buscar cualquier otra ciudad además de las propuestas en
 
 - Con Docker: En consola desde el root "docker-compose up" **(cambiar el proxy del package.json de la carpeta "client" a http://backend:5000 para que funcione)**. Tarda 1 minuto aprox en devolver el front.
 - En consola desde el root "npm run dev" para development mode (con proxy http://localhost:5000)
-- En consola desde el root "npm run server" para production mode (se cambia a production automáticamente ejecutando este comando) (con proxy http://localhost:5000)
+- En consola desde el root "npm run server" para production mode (se cambia a production automáticamente ejecutando este comando) (con proxy http://localhost:5000) (Se debe ejecutar "npm run build" en la carpeta "client" previamente)
 
 
 ## Aclaraciones
@@ -42,3 +42,4 @@ En el deploy de Heroku, el boton de "Your location" no muestra el tiempo de tu c
 Si corres el proyecto en localhost funciona correctamente.
 
 Esta aplicación fue hecha en menos de 3 dias. 
+
