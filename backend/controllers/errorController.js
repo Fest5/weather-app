@@ -23,46 +23,20 @@ const sendErrorProd = (err, req, res) => {
     // API
     if(req.originalUrl.startsWith('/api')) {
         // Operational, trusted error: send message to client
-        if(err.isOperational) {
-                res.status(err.statusCode).json({
+        
+            res.status(err.statusCode).json({
                 status: err.status,
                 message: err.message
-            });
-
-        // Programming error or other unknown error: don't leak error details
-        } else {
-            // 1) Log error
-            console.error('ERROR', err)
-
-            // 2) Send generic error
-
-                res.status(500).json({
-                status: 'error',
-                message: 'Something went very wrong'
             })
-        }
+
+        
     } else {
         // RENDERED WEBSITE
-         // Operational, trusted error: send message to client
-         if(err.isOperational) {
             // console.log(err)
-            res.status(err.statusCode).render('error', {
+            res.status(err.statusCode).json('error', {
                 title: 'Something went wrong!',
                 msg: err.message
             })
-
-        // Programming error or other unknown error: don't leak error details
-        } else {
-            // 1) Log error
-            console.error('ERROR', err)
-
-            // 2) Send generic error
-
-            res.status(err.statusCode).render('error', {
-                title: 'Something went wrong!',
-                msg: 'Please try again later.'
-            })
-        }
     }
     
     

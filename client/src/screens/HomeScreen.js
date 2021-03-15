@@ -2,16 +2,6 @@ import React, { useState, useEffect } from "react"
 import axios from "axios"
 import { ButtonGroup, Button, Container, Jumbotron } from "react-bootstrap"
 import { LinkContainer } from "react-router-bootstrap"
-/* const ip = axios
-        .get("/api/v1/ip")
-        .then((res) => console.log('resuelto'))
-        .catch((error) => console.log(error))    
- console.log(ip)
-    
-    if(ip) {
-        const city = axios.get(`http://ip-api.com/json/${ip}`).then((res) => console.log(res))
-
-}    */
 
 const HomeScreen = () => {
   const [ipAdress, setIpAdress] = useState("")
@@ -46,7 +36,7 @@ const HomeScreen = () => {
 
   return (
     <Jumbotron fluid className='text-center'>
-      <Container>
+      <Container data-testid="home-screen" >
         <h1>Get the weather of your city!</h1>
         <p>
           Press the button for which location you want to know the weather of
