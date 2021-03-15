@@ -3,7 +3,7 @@ import {render, fireEvent} from '@testing-library/react'
 import WeatherCard from './WeatherCard'
 
 it("renders correctly", () => {
-    const {queryByTestId, queryByPlaceholderText } = render(<WeatherCard/>)
+    const {queryByTestId } = render(<WeatherCard/>)
 
     expect(queryByTestId("weather-card")).toBeTruthy()
 })

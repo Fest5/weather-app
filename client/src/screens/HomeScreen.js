@@ -36,14 +36,14 @@ const HomeScreen = () => {
 
   return (
     <Jumbotron fluid className='text-center'>
-      <Container data-testid="home-screen" >
+      <Container >
         <h1>Get the weather of your city!</h1>
         <p>
           Press the button for which location you want to know the weather of
         </p>
         <ButtonGroup vertical className='mt-2'>
-          <LinkContainer to={`/search/${city}`}>
-            <Button variant='primary' size='lg' block>
+          <LinkContainer to={`/search/${city ? city : 'buenos%20aires'}`}>
+            <Button className='my-location' variant='primary' size='lg' block>
               Your Location!
             </Button>
           </LinkContainer>
